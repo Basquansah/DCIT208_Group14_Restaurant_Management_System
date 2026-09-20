@@ -1,0 +1,47 @@
+# Query: const handleSendToKitchen = async () => {
+# ContextLines: 1
+
+1 result - 1 file
+
+src\app\pos\page.tsx:
+  266    // 1. Send Order to Kitchen as PENDING
+  // Helper to handle offline order submission & auto-sync queue
+  const submitOrderWithOfflineSupport = async (orderPayload: any) => {
+    const isOnline = typeof navigator !== 'undefined' ? navigator.onLine : true;
+
+    if (!isOnline) {
+      const existingQueue = JSON.parse(localStorage.getItem('offline_orders') || '[]');
+      const offlineOrder = {
+        ...orderPayload,
+        local_id: 'OFFLINE-' + Date.now(),
+        created_at: new Date().toISOString()
+      };
+      localStorage.setItem('offline_orders', JSON.stringify([...existingQueue, offlineOrder]));
+      
+      alert('⚠️ No internet connection! Order saved locally and will sync automatically when online.');
+      return { success: true, offline: true, order: offlineOrder };
+    }
+
+    try {
+      const response = await fetch('/api/orders', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(orderPayload),
+      });
+      const result = await response.json();
+      return result;
+    } catch (err) {
+      const existingQueue = JSON.parse(localStorage.getItem('offline_orders') || '[]');
+      const offlineOrder = {
+        ...orderPayload,
+        local_id: 'OFFLINE-' + Date.now(),
+        created_at: new Date().toISOString()
+      };
+      localStorage.setItem('offline_orders', JSON.stringify([...existingQueue, offlineOrder]));
+      
+      alert('⚠️ Network error! Order saved locally to offline queue.');
+      return { success: true, offline: true, order: offlineOrder };
+    }
+  };
+  267:   const handleSendToKitchen = async () => {
+  268      if (Object.keys(currentTab.cart).length === 0) {

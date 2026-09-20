@@ -1,0 +1,3 @@
+ALTER TABLE public.orders
+  ADD COLUMN IF NOT EXISTS customer_phone TEXT,
+  ADD COLUMN IF NOT EXISTS order_source TEXT DEFAULT 'POS';
