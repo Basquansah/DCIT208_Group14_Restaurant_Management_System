@@ -205,11 +205,11 @@ export default function HomePage() {
       <div style={{ backgroundColor: '#451426', color: '#f8fafc', padding: '8px 20px', fontSize: '13px', borderBottom: '3px solid #6b213a' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '10px' }}>
           <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
-            <span>📍 <strong>Location:</strong> Legon Campus & Surrounds, Accra</span>
+            <span>📍 <strong>Location:</strong> Graphic Road (Accra)</span>
             <span>🕒 <strong>Opening Hours:</strong> Mon - Sat: 7:30 AM – 4:00 PM</span>
           </div>
           <div>
-            <span>📞 <strong>Hotline:</strong> +233 (0) 24 123 4567</span>
+            <span>📞 <strong>Hotline:</strong> +233 (0) 244520750</span>
           </div>
         </div>
       </div>
