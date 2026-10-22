@@ -4,8 +4,8 @@ Deliverable D4: Architecture, CI/CD Baseline & Mid-Sem Architecture Defense
 Course: DCIT 208 – Software Engineering
 Deliverable ID: D4
 Team Name: Group 14
-Project Title: Restaurant Management System (Sarah's Tasty Foods)
-Client: Local Traditional Ghanaian Restaurant Owner
+Project Title: Restaurant Management System 
+Client: Sarah's Tasty Foods
 Repository URL: https://github.com/Basquansah/DCIT208_Group14_Restaurant_Management_System
 [cite: ]
 Target Release Tag: v0.0-baseline
